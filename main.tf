@@ -4,6 +4,8 @@
 
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
+variable "tag_dept" {}
+variable "tag_contact" {}
 
 variable "aws_region" {
   default = "us-west-2"
@@ -161,9 +163,9 @@ resource "aws_instance" "webserver" {
   subnet_id              = "${aws_subnet.public.id}"
 
   tags {
-    "X-Contact"   = "jhudson"
-    "X-Dept"   = "Success"
     Name = "webserver"
+    X-Dept    = "${var.tag_dept}"
+    X-Contact = "${var.tag_contact}"
   }
 }
 
@@ -176,8 +178,8 @@ resource "aws_instance" "database" {
 
   tags {
     Name = "database"
-    "X-Contact"   = "jhudson"
-    "X-Dept"   = "Success"
+    X-Dept    = "${var.tag_dept}"
+    X-Contact = "${var.tag_contact}"
   }
 }
 
