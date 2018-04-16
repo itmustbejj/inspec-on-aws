@@ -9,7 +9,7 @@ end
 control "aws_iam_user properties" do
   describe aws_iam_user(username: my_user) do
     it { should have_mfa_enabled }
-    it { should have_console_password } # TODO: this is working by accident, we should have a dedicated fixture
+    it { should have_console_password }
     its('access_keys.count') { should eq 1 }
   end
 
