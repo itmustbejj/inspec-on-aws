@@ -6,7 +6,7 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
 variable "aws_region" {
-  default = "us-east-1"
+  default = "us-west-2"
 }
 
 variable "aws_availability_zone" {
@@ -161,6 +161,8 @@ resource "aws_instance" "webserver" {
   subnet_id              = "${aws_subnet.public.id}"
 
   tags {
+    "X-Contact"   = "jhudson"
+    "X-Dept"   = "Success"
     Name = "webserver"
   }
 }
@@ -174,6 +176,8 @@ resource "aws_instance" "database" {
 
   tags {
     Name = "database"
+    "X-Contact"   = "jhudson"
+    "X-Dept"   = "Success"
   }
 }
 
