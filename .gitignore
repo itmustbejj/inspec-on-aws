@@ -3,5 +3,4 @@
 terraform.tfvars
 terraform.tfstate
 terraform.tfstate.backup
-aws-security/
 attributes.yml
